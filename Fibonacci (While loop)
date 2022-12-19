@@ -1,0 +1,13 @@
+first = 1
+second = 1
+third = 0
+max = int(input())
+print("input a number",max)
+
+while third < max:
+  third = first + second
+  first = second
+  print("first is", first)
+  second = third
+  print("second is",second)
+  print("fibo is", third)
