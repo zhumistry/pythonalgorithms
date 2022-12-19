@@ -1,0 +1,17 @@
+String = input()
+Last = len(String) - 1
+First = 0
+Max = Last/2
+Pal = 1
+
+while (Pal) and (Max < Last):
+  if String[First] == String[Last]:
+     First = First + 1
+     Last = Last - 1
+  else:
+     Pal = 0
+
+if Pal == 1:
+   print("it is a palindrome")
+else:
+   print("it is not a palindrome")
