@@ -1,0 +1,20 @@
+Python program to display the Fibonacci sequence from 1 to 100:
+
+
+def recur_fibo(First, Second, Number):
+   Third = First + Second
+   First = Second
+   Second = Third 
+   if Third <= Number:
+       print(Third)
+       recur_fibo(First, Second, Number)
+
+First = 1
+Second = 1
+Third = 100
+
+
+print("Fibonacci sequence:")
+print(First)
+print(Second)
+recur_fibo(First, Second, Third)
