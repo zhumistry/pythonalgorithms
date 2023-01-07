@@ -1,0 +1,24 @@
+Python program to display the Fibonacci sequence from 1 to 100 in reverse order:
+
+
+def recur_fibo(First, Second, Number): 
+   Third = First + Second
+   if Third <= Number:
+       
+       First = Second
+       Second = Third
+       recur_fibo(First, Second, Number)
+   if Third <= Number:
+       print(Third)
+
+
+First = 1
+Second = 1
+Third = 100
+
+
+print("Fibonacci sequence less than 100:")
+
+recur_fibo(First, Second, Third)
+print(Second)
+print(First)
