@@ -1,3 +1,3 @@
 # pythonbasics
 
-A collection of basic python commands
+A collection of python algorithms
