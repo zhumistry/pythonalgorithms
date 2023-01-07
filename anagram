@@ -1,0 +1,75 @@
+String1 = input(('string 1:'))
+Str1 = len(String1) -1
+print('length of string1:',Str1)
+
+String2 = input('string 2:')
+Str2 = len(String2) -1
+print('length of string 2:',Str2)
+
+Num_of_alphabet_1 = []
+Num_of_alphabet_2 = []
+Num_a = 0
+Num_b = 0
+Num_c = 0
+Counter = 0
+
+if Str1 != Str2:
+  print('it is not an anagram')
+else:
+ while Counter <= Str1:
+   if String1[Counter] == 'a':
+     print('imm aft if, a:',Num_a)
+     Num_a = Num_a + 1
+     print('imm aft + 1, a:',Num_a)
+     Num_of_alphabet_1.append(Num_a)
+   elif String1[Counter] == 'b':
+     print('imm aft if, b:',Num_b)
+     Num_b = Num_b + 1
+     print('imm aft + 1, b:',Num_b)
+     Num_of_alphabet_1.append(Num_b)    
+   else:
+     String1[Counter] == 'c'
+     print('imm aft if, c:',Num_c)
+     Num_c = Num_c + 1
+     print('imm aft + 1, c:',Num_c)
+     Num_of_alphabet_1.append(Num_c)
+ 
+   Counter = Counter + 1
+   print('counter for string 1 is:',Counter)
+
+ Num_a = 0
+ Num_b = 0
+ Num_c = 0
+ Counter = 0
+ while Counter <= Str2:
+   if String2[Counter] == 'a':
+     print('imm aft if, a:',Num_a)
+     Num_a = Num_a + 1
+     print('imm aft + 1, a:',Num_a)
+     Num_of_alphabet_2.append(Num_a)
+   elif String2[Counter] == 'b':
+     print('imm aft if, b:',Num_b)
+     Num_b = Num_b + 1
+     print('imm aft + 1, b:',Num_b)
+     Num_of_alphabet_2.append(Num_b)    
+   else:
+     String2[Counter] == 'c'
+     print('imm aft if, c:',Num_c)
+     Num_c = Num_c + 1
+     print('imm aft + 1, c:',Num_c)
+     Num_of_alphabet_2.append(Num_c)
+ 
+   Counter = Counter + 1
+   print('counter for string 2 is:',Counter)
+  
+ Anagram = 1
+ Counter = 0
+ while (Counter <= Str1) and Anagram:
+   if Num_of_alphabet_1[Counter] == Num_of_alphabet_2[Counter]:
+      Counter = Counter + 1
+   else:
+     Anagram = 0
+ if Anagram:
+   print('it is an anagram')
+ else:
+   print('it is not an anagram')
