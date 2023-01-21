@@ -1,0 +1,20 @@
+Question:
+Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score. You are given n scores.
+Store them in a list and find the score of the runner-up.
+
+
+# Python program to find second largest number
+# in a list
+ 
+# List of numbers
+scores = [2, 3, 6, 6, 5]
+ 
+# new_list is a set of list1
+new_scores = set(scores)
+print('new score is',new_scores)
+# Removing the largest element from temp list
+new_scores.remove(max(new_scores))
+ 
+# Elements in original list are not changed
+# print(list1)
+print(max(new_scores))
