@@ -1,0 +1,50 @@
+Question:
+Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score.
+You are given n scores. Store them in a list and find the score of the runner-up.
+
+
+Solution:
+def ReturnGreatest(Scores, MaxLengthList):
+  Counter = 0
+  Largest_Num = Scores[Counter]
+  Num_list = MaxLengthList - 1
+  while Counter <= Num_list:
+    print('Counter is',Counter, 'Largest Num', Largest_Num, 'Value in List is', Scores[Counter])
+    if Largest_Num < Scores[Counter]:
+      Largest_Num = Scores[Counter]
+      print('--- After assigning the value', Largest_Num)
+      Counter = Counter + 1
+    else:
+      print('else')
+      Counter = Counter + 1
+    print('Largest number is', Largest_Num, '---Counter is now', Counter)
+  print('returning the largest number', Largest_Num)
+  return Largest_Num 
+
+def ReturnRunnerUp(Scores, Largest_Num, MaxLengthList):
+  Scores.sort()
+  print('Sorted Scores is',Scores)
+  Found = 0
+  MaxLengthList = MaxLengthList - 1
+  while Found == 0:
+    if Scores[MaxLengthList] == Largest_Num:
+      MaxLengthList = MaxLengthList - 1
+    else:
+      Found = 1
+      
+  return Scores[MaxLengthList]
+  
+
+
+Scores = [] 
+MaxLengthList = 8
+while len(Scores) < MaxLengthList:
+  Score = int(input("Enter your score to the List: "))
+  Scores.append(Score)
+print('the list is',Scores)
+Largest_Num = ReturnGreatest(Scores, MaxLengthList)
+print('Greatest Num is',Largest_Num)
+
+RunnerUpNum = ReturnRunnerUp(Scores, Largest_Num, MaxLengthList)
+
+print('Second largest number is', RunnerUpNum)
