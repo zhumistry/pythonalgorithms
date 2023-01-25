@@ -1,0 +1,49 @@
+Question:
+Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score.
+You are given n scores. Store them in a list and find the score of the runner-up (reverse --> second smallest score).
+
+
+Solution:
+def ReturnSmallest(Scores, MinLengthList):
+  Counter = 0
+  Smallest_Num = Scores[Counter]
+  Num_list = MinLengthList - 1
+  while Counter <= Num_list:
+    print('Counter is',Counter, 'Smallest Num is', Smallest_Num, 'Value in List is', Scores[Counter])
+    if Smallest_Num < Scores[Counter]:
+      print('--- After assigning the value', Smallest_Num)
+      Counter = Counter + 1
+    else:
+      print('else')
+      Smallest_Num = Scores[Counter]
+      Counter = Counter + 1
+    print('Smallest number is', Smallest_Num, '---Counter is now', Counter)
+  print('returning the smallest number', Smallest_Num)
+  return Smallest_Num
+
+def ReturnRunnerUp(Scores, Smallest_Num, MinLengthList):
+  Scores.sort(reverse=True)
+  print('Sorted Scores is',Scores)
+  Found = 0
+  MinLengthList = MinLengthList - 1
+  while Found == 0:
+    if Scores[MinLengthList] == Smallest_Num:
+      MinLengthList = MinLengthList - 1
+    else:
+      Found = 1
+      
+  return Scores[MinLengthList]
+  
+
+
+Scores = [] 
+MinLengthList = 5
+while len(Scores) < MinLengthList:
+  Score = int(input("Enter your score to the List: "))
+  Scores.append(Score)
+print('the list is',Scores)
+Smallest_Num = ReturnSmallest(Scores, MinLengthList)
+print('Smallest Num is',Smallest_Num)
+
+RunnerUpNum = ReturnRunnerUp(Scores, Smallest_Num, MinLengthList)
+print('Second Smallest Number is', RunnerUpNum)
