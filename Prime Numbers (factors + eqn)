@@ -1,0 +1,29 @@
+Question:
+Write a Python program that asks the user to enter an integer (X), then:
+- Determine if X is prime or not
+- If X is not prime, compute and print the factors of that integer X
+- Evaluate and print the equation Y=8X²+ 1, for X values from -5 to 5 using the range function and for loop
+
+
+
+Solution:
+
+def CheckPrime(X):
+  Prime = 1
+  HalfofX = int(X/2)
+  for i in range(2,HalfofX+1):
+    if (X % i) == 0:
+      Prime = 0
+      print('factors are:',i)
+  print('factors are:',X)
+  return Prime
+
+Num = int(input('enter a number (X): '))
+print('factors are: 1')
+if CheckPrime(Num):
+  print(Num, "is a prime number")
+else:
+  print(Num, "is not a prime number")
+
+for Num in range(-5,6):
+  print('Y is',8*(Num*Num) + 1)
