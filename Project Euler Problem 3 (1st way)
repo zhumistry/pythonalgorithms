@@ -1,0 +1,40 @@
+Question:
+The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143 ?
+
+Solution;
+
+def PopulateFactors(X):
+  LocalListofFactor = []
+  HalfofX = int(X/2)+1
+  for i in range(2,HalfofX):
+    if (X % i) == 0:
+      LocalListofFactor.append(i)
+  if len(LocalListofFactor) == 0:
+    LocalListofFactor.append(X)
+  print(LocalListofFactor)
+  return LocalListofFactor
+
+def CheckPrime(X):
+  Prime = 1
+  HalfofX = int(X/2)
+  for i in range(2,HalfofX+1):
+    if (X % i) == 0:
+      Prime = 0
+  print('prime is:',Prime)
+  return Prime
+
+Num = int(input('enter a number (X): '))
+GlobalListofFactor =  []
+GlobalListofFactor =  PopulateFactors(Num)
+print(GlobalListofFactor)
+NumberofFactors = len(GlobalListofFactor)
+print('number of items',len(GlobalListofFactor))
+print("Number the factors:", NumberofFactors)
+i = 0 # index of 0 is the first element
+BiggestPrimeNumber = 0
+
+for i in range(0, NumberofFactors):
+  if CheckPrime(GlobalListofFactor[i]):
+    BiggestPrimeNumber = GlobalListofFactor[i]
+
+print("Biggest prime factor of", Num, "is", BiggestPrimeNumber)
