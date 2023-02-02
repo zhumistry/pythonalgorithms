@@ -1,0 +1,48 @@
+Question:
+2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+What is the sum of the digits of the number 2^1000?
+
+Solution:
+
+def BasetothePowerof(Base,Power):
+  LBase = Base
+  Counter = 1
+  LProduct = Base
+  LPower = Power - 1
+  while Counter <= LPower:
+    LProduct = LProduct * Base
+    Counter += 1
+
+  return LProduct
+
+GBase = int(input('Enter base number:'))
+GPower = int(input('Enter to the power of number:'))
+GAnswer = BasetothePowerof(GBase,GPower)
+
+def FindListofRem(Num):
+  Llistofintegers = []
+  LRemainder = 0
+  LQuotient = 1
+  while LQuotient != 0:
+    LQuotient = Num // 10
+    LRemainder = Num % 10
+    Num = LQuotient
+    
+    Llistofintegers.append(LRemainder)
+  return Llistofintegers
+
+
+def SumofRem(ListofRem):
+  LCounter = 0
+  LSum = 0
+  LNumofRem = len(ListofRem) - 1
+  while LCounter <= LNumofRem:
+    LSum = LSum + ListofRem[LCounter]
+    LCounter += 1
+  return LSum
+
+GSum = 0
+GListofRem = []
+GListofRem = FindListofRem(GAnswer)
+GSum = SumofRem(GListofRem)
+print('Sum of digits is',GSum)
