@@ -1,0 +1,24 @@
+Question:
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+#What is the 10 001st prime number?
+
+Solution:
+
+def CheckPrime(X):
+  Prime = 1
+  HalfofX = int(X/2)
+  for i in range(2,HalfofX+1):
+    if (X % i) == 0:
+      Prime = 0
+  return Prime
+
+ 
+PrimeCounter = 2
+CurrentNum = 3
+while PrimeCounter != 10001:
+  CurrentNum = CurrentNum + 2
+  print(CurrentNum)
+  if CheckPrime(CurrentNum):
+    PrimeCounter += 1
+
+print('1001st prime number is',CurrentNum)
