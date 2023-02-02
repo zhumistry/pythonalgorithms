@@ -1,0 +1,45 @@
+Question:
+The sum of the squares of the first ten natural numbers is,
+1^2 + 2^2 + ... + 10^2 = 385
+The square of the sum of the first ten natural numbers is,
+(1 + 2 + ... + 10)^2 = 55^2 = 3025
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 - 385 = 2640
+Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+Solution:
+
+#1*1 + 2*2 + 3*3 ... n*n
+def SumofSquare(UpperLimit):
+  LocalSumofSquare = 0
+  LSquare = 0
+  Counter = 1
+  while Counter <= UpperLimit:
+    LSquare = Counter * Counter
+    LocalSumofSquare = LocalSumofSquare + LSquare
+    Counter += 1
+
+  return LocalSumofSquare
+
+# (1 + 2 + 3 ... + n) * (1 + 2 + 3 ... + n) 
+def SquareofSum(UpperLimit):
+  LocalSum = 0
+  Counter = 1
+  while Counter <= UpperLimit:
+    LocalSum =  LocalSum + Counter
+    Counter += 1
+
+  return LocalSum*LocalSum
+
+UpperLimit = 100
+GSumofSquare = 0
+GSquareofSum = 0
+Difference = 0
+
+GSumofSquare = SumofSquare(UpperLimit)
+print('Sum of Square', GSumofSquare)
+GSquareofSum = SquareofSum(UpperLimit)
+print('Sqare of Sum', GSquareofSum)
+
+Difference = GSquareofSum - GSumofSquare
+
+print('Difference between SquareofSum & SumofSquare =', Difference)
