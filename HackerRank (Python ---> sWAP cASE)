@@ -1,0 +1,41 @@
+Question:
+
+You are given a string and your task is to swap cases. In other words, convert all lowercase letters to uppercase letters and vice versa.
+Input: HackerRank.com presents "Pythonist 2".
+Output: hACKERrANK.COM PRESENTS "pYTHONIST 2".
+
+
+Solution:
+
+def ConvertString(String):
+  LNewString = ''
+  LCounter = 0
+  LLenofString = 0
+  LAscii_Value = 0
+  LLenofString = len(String) - 1
+
+  while LCounter <= LLenofString:
+    LAscii_Value = ord(String[LCounter])
+    print('Counter & Ascii value', LCounter, LAscii_Value)
+    if LAscii_Value >= 65 and LAscii_Value <= 90:
+      LAscii_Value = LAscii_Value + 32
+      print('inside if before chr, ascii value is', LAscii_Value)
+      LNewString = LNewString + chr(LAscii_Value)
+      print('Updated new string is', LNewString)
+    elif LAscii_Value >= 97 and LAscii_Value <= 122:
+      LAscii_Value = LAscii_Value - 32
+      print('inside elif before chr, ascii value is', LAscii_Value)
+      LNewString = LNewString + chr(LAscii_Value)
+      print('Updated new string is', LNewString)
+
+    LCounter += 1
+    
+  return LNewString
+
+
+GString = str(input('enter a string:'))
+GConvertedString = ''
+
+GConvertedString = ConvertString(GString)
+print(GString)
+print(GConvertedString)
