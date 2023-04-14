@@ -1,0 +1,122 @@
+import pandas as pd
+
+# Display menu
+while True:
+    print("(1) Display selected number of Pokemons with their types and statistics")
+    print("(2) Display the first Pokemon of a Type of the trainer’s choice")
+    print("(3) Display all Pokemons with Total Base stat of the trainer’s choice")
+    print("(4) Display all Pokemons with a minimum set of stats")
+    print("(5) Display all legendary Pokemons of Types of the trainer’s choice")
+    print("(0) Quit")
+# ask user to input choice
+    choice = input("Enter choice: ")
+
+#if choice number 1 is chosen
+    if choice == "1":
+      NumofPoke = int(input("Enter number of Pokemons to be displayed: "))
+
+# Load the CSV file into a Pandas DataFrame
+      df = pd.read_csv('Pokemon.csv')
+
+# Display all rows and columns of Pokemons
+      pd.set_option('display.max_rows', None)
+      pd.set_option('display.max_columns', None)
+  
+# Print number of Pokemons user wants
+      print(df.head(NumofPoke))
+
+    else:
+      print()
+
+
+# if choice number 2 is chosen
+    if choice == "2":
+
+# User input type of Pokemon  
+      type = input('Enter type of Pokemon: ')
+      df = pd.read_csv("Pokemon.csv")
+
+# Display all rows and columns of Type of Pokemon
+      pd.set_option('display.max_rows', None)
+      pd.set_option('display.max_columns', None)
+      # check if type of pokemon exists in column under heading 'Type 2'
+      if not df['Type 2'].isin([type]).any():
+       print('No pokemon of this type')
+      else:
+       # if Pokemon that user input exists, print first type of all possible Pokemons
+       row = df.loc[df['Type 2'] == type]
+       print(row.head(1))
+
+
+# If user chooses option 3
+    if choice == "3":
+# Display all rows and columns of Pokemons with chosen Total Base stats
+      pd.set_option('display.max_rows', None)
+      pd.set_option('display.max_columns', None)
+      df = pd.read_csv("Pokemon.csv")
+# Get user input for Total Base stat
+      stat = input("Enter Total Base stat: ")
+# Check if user input is valid
+      # check whether user input is integer
+      if stat.isdigit():
+        stats = int(stat)
+        # if user inputis an integer, print Pokemons
+        if stats in df['Total'].values:
+          rows = df[df['Total'] == stats]
+          print(rows)
+# Output if user input is invalid (not an integer)
+      else:
+        stats = stat
+        print('No pokemon with this Total Base stat.')
+
+
+# If user chooses option 4
+    if choice == "4":
+      pd.set_option('display.max_rows', None)
+      pd.set_option('display.max_columns', None)
+      df = pd.read_csv("Pokemon.csv")
+ 
+# Get user input
+      minSpAtk = int(input("Enter min special attack stat: "))
+      minSpDef = int(input("Enter min special defense stat: "))
+      minSpeed = int(input("Enter min speed stat: "))
+
+# Filter the DataFrame based on user input and specified columns
+      # Check for Pokemons with Special Attack, Special Defense and Speed higher or equal to user input
+      new_df = df[(df['Sp. Atk'] >= minSpAtk) & (df['Sp. Def'] >= minSpDef) & (df['Speed'] >= minSpeed)]
+
+# Check if user input is present in any of the specified columns
+      if not new_df.empty:
+        print(new_df)
+      # if no Pokemon matches user input:
+      else:
+        print("No pokemon has such powerful stats")
+
+#If user chooses option 5
+    if choice == "5":
+      pd.set_option('display.max_rows', None)
+      pd.set_option('display.max_columns', None)
+      df = pd.read_csv("Pokemon.csv")
+
+# Get user inputs
+      Type_1 = input("Enter Type1: ")
+      Type_2 = input("Enter Type2: ")
+
+# Filter the DataFrame based on user inputs and specified columns
+      # check column under heading 'Legendary', output Pokemons that match user input of Type 1 and Type 2
+      new_df = df[(df['Type 1'].str.contains(Type_1,case=False)) & (df['Type 2'].str.contains(Type_2,case=False)) & (df['Legendary'] == True)]
+  
+# Check if user inputs are present in the specified columns
+      if not new_df.empty:
+        print(new_df)
+# Output if user input is invalid
+      else:
+        print("No such legendary Pokemon.")
+
+# If user chooses option 0
+    if choice == "0":
+      print('Bye')
+# If user chooses invalid option --> directed back to menu
+    while choice not in [0,1,2,3,4,5]:
+      print('Not implemented yet? Please choose a valid option.')
+      break
