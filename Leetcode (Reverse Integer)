@@ -1,0 +1,16 @@
+Reverse an integer, considering negative numbers and reverse integers with leading zeros.
+
+Num = int(input('Enter a number: '))
+Num_str = str(abs(Num))[::-1]  # Reverse the string of the absolute value of Num
+Counter = 0
+while Counter < len(Num_str) and Num_str[Counter] == '0':
+    Counter += 1
+if Counter == len(Num_str):
+    Reversed_num_str = '0'
+else:
+    if Num < 0:
+        Reversed_num_str = '-' + Num_str[Counter:]
+    else:
+        Reversed_num_str = Num_str[Counter:]
+Reversed_num = int(Reversed_num_str)  # Convert the string back to an integer
+print(Reversed_num)
