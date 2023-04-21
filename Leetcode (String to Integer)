@@ -1,0 +1,8 @@
+Qn: https://leetcode.com/problems/string-to-integer-atoi/
+
+
+Solution:
+
+str = input('Enter a string: ')
+numbers = [Counter for Counter in str if Counter.isdigit() or Counter in ('-','+')]
+print(int((''.join(numbers))))
