@@ -1,0 +1,14 @@
+Qn: https://leetcode.com/problems/palindrome-number/
+
+
+Solution:
+
+number = int(input("Enter an integer: "))   
+if number < 0:    
+    print("Not a palindrome")
+else:
+    num_str = str(number)    
+if num_str == num_str[::-1]:    
+    print("The number is a palindrome!")
+else:
+    print("The number is not a palindrome.")
