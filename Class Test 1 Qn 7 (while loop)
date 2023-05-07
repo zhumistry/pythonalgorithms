@@ -1,0 +1,26 @@
+def search(treasure, world):
+  Counter = 0
+  Found = 0
+  Itemsinworld = len(world) -1
+  while Counter <= Itemsinworld:
+    if treasure == world[Counter]:
+      return Counter
+    Counter += 1
+  if Found == 0:
+    return -1
+
+
+if search("gold",["tree", "gold", "tree", "rock"]) == -1:
+  print('not found')
+else:
+  print('gold is located at point 1.')
+
+if search("money",["money", "gold", "tree", "rock"]) == -1:
+  print('not found')
+else:
+  print("money is located at point 0.")
+
+if search("money",["tree", "gold", "tree", "rock"]) == -1:
+  print("money not found.")
+else:
+  print('found')
