@@ -1,0 +1,10 @@
+def count(value, lst):
+  ans = 0
+  for element in lst:
+    if value == element:
+      ans += 1
+  return ans
+  
+print(count(5, [1,2,3,4,5]))
+print(count("ab", ["ab", "cd", "ab", "bc"]))
+print(count("z", [1, 2, "a"]))
