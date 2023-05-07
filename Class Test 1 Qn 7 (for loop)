@@ -1,0 +1,13 @@
+def search(treasure,world):
+    Found = False
+    for Counter in range(len(world)):
+        if world[Counter] == treasure:
+            print(f"'{treasure}' is located at point {Counter}")
+            Found = True
+    if not Found:
+      print(f"'{treasure}' not found.")
+
+
+search("gold",["tree", "gold", "tree", "rock"])
+search("money",["money", "gold", "tree", "rock"])
+search("money",["tree", "gold", "tree", "rock"])
