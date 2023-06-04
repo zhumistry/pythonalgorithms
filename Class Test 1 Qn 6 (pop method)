@@ -1,0 +1,13 @@
+def types(world):
+  world.sort()
+  Counter = 0
+  while Counter < len(world) - 1:
+    if world[Counter] == world[Counter + 1]:
+      world.pop(Counter)
+    else:
+      Counter += 1
+  return world
+
+print(types(["tree", "gold", "tree", "rock"]))
+print(types(["tree", "hill", "hill", "hill"]))
+print(types(["tree", "gold", "rock"]))
