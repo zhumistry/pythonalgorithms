@@ -1,0 +1,24 @@
+Question:
+Write a function, shift_right(), which takes in an integer and shifts all its digits rightward by one. 
+For example, shift_right(12345) will return 51234.
+(You may assume that the integers used do not contain the digit 0.)
+
+
+def shift_right(Listofinteger):
+    LenList = len(Listofinteger) - 1
+    TemList = []
+    Counter = 0
+
+    TemList.insert(Counter, Listofinteger[LenList])
+    Counter += 1
+    while (Counter <= LenList):
+        TemList.insert(Counter, Listofinteger[Counter - 1])
+        Counter += 1
+
+    return(TemList)
+
+Integer = 12345
+Listofinteger = [int(x) for x in str(Integer)]
+
+print(type(Listofinteger))
+print(shift_right(Listofinteger))
