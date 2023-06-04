@@ -1,0 +1,27 @@
+Question: 
+Write a function, shift_right(), which takes in an integer and shifts all its digits rightward by one. 
+For example, shift_right(12345) will return 51234.
+(You may assume that the integers used do not contain the digit 0.)
+
+
+def shift_right(String):
+    LenOfString = len(String) - 1
+    TemStr = ""
+    Counter = 0
+
+    TemStr = TemStr + String[LenOfString]
+    Counter += 1
+    print(TemStr, Counter)
+    while Counter <= LenOfString:
+        print('TemStr now is ', TemStr)  
+        TemStr = TemStr + String[Counter - 1]
+        Counter += 1
+        
+    print('TemStr before return', TemStr)
+    return TemStr
+
+    
+Integer = 12345
+String = str(Integer)
+print('string before calling shift right', String)
+print(shift_right(String))
