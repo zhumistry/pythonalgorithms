@@ -1,0 +1,14 @@
+def linear_search(Start,Max,Search_item):
+  if Start > Max:
+    return False
+  elif  List[Start] == Search_item:
+    return Start
+  else:
+    return linear_search(Start + 1, Max, Search_item)
+
+  
+List = [6,5,4,3,2,1]
+Max = len(List) - 1
+Start  = 0
+Search_item = 3
+print('location of search item is at',linear_search(Start,Max,Search_item) + 1) 
