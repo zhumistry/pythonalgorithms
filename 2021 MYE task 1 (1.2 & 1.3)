@@ -80,7 +80,7 @@ def task1_3(A):
   return Tem1 - Tem2 + Tem3
 
 
-
 A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-  
-print(task1_3(A))
+
+print('task 1.2 is:',task1_2(A,1,1))
+print('task 1.3 is:',task1_3(A))
