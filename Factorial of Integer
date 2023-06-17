@@ -1,0 +1,8 @@
+def Num_Factorial(Num):
+  Product = 1
+  if Num >= 1:
+    Product = Num * Num_Factorial(Num - 1)
+  return Product
+
+Num = int(input('Enter an integer:'))
+print(Num_Factorial(Num))
