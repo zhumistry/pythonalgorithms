@@ -1,0 +1,10 @@
+def sum_of_int(List,LenList):
+  Sum = 0
+  if LenList >= 0:
+    Sum = List[LenList] + sum_of_int(List,LenList - 1)
+  return Sum
+
+
+List = [1,2,3,4,5]
+LenList = len(List) - 1
+print(sum_of_int(List,LenList))
