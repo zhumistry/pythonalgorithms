@@ -1,6 +1,0 @@
-def types(world):
-  return sorted(list(set(world)))
-
-print(types(["tree", "gold", "tree", "rock"]))
-print(types(["tree", "hill", "hill", "hill"]))
-print(types(["tree", "gold", "rock"]))
