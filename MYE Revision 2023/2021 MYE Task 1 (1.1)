@@ -1,1 +1,11 @@
+A = [['1','32', '-3'],['4', '5', '6'],['7.5', '8', '9']]
 
+def task1_1(A):
+  IsDigit = True
+  for nestedlist in A:
+    for char in nestedlist:
+      if type(char) in (int,float,complex):
+        IsDigit = False
+  return IsDigit
+  
+print(task1_1(A))
