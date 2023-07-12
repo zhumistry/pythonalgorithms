@@ -1,1 +1,69 @@
+# Task 1.1
+
+def DecimalToBinary(decimal):
+    # Define the binary dictionary
+    binary_dict = {0: '0',1: '1'}
+
+    # Convert decimal number to binary
+    binary = ''
+    while decimal > 0:
+        remainder = decimal % 2
+        binary = binary_dict[remainder] + binary
+        decimal = decimal // 2
+        
+    if len(binary) == 8:
+        return binary
+    else:
+        binary_str = str(binary)
+        len_of_0 = 8 - len(binary_str)
+        return len_of_0*'0' + binary_str
+        
+        
+print(DecimalToBinary(int(input('Enter a number: '))))
+
+
+# Task 1.2
+
+def Shift(string):
+    temp_str = ''
+    temp_char = ''
+    if len(string) == 8:
+        if 1 or 0 in string:
+            temp_char = string[0]
+            temp_string = string[1:] + temp_char
+    else:
+        return 'Error'
+        
+    return temp_string
+            
+print(Shift(str(input('Enter a binary number: '))))   
+
+
+# Task 1.4
+
+def ASCII(letter):
+    num = ord(letter)
+    num += 1
+    
+    return num
+
+string = ''
+word = 'DAD'
+word = 'HELLO'
+word_split = list(word)
+Counter = 0
+while Counter <= len(word) - 1:
+    num = ASCII(word_split[Counter])
+    
+    binary = (DecimalToBinary(num)) # convert decimal to binary
+    print('binary is: ',binary)
+
+    shifted_binary = Shift(binary)
+    print('Shifted: ',shifted_binary)
+    
+    Counter += 1
+    
+    string = string + shifted_binary + ' '
+
+    print('string is: ',string)
 
