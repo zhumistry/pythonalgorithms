@@ -1,1 +1,34 @@
+temp_list = []
 
+def rank():
+  with open('RESULTS.txt') as file:
+    results = file.read()
+    print(results)
+    lines = results.splitlines()
+ 
+  Counter = 0
+  Ranking = []
+  Names = []
+  Nested_list = []
+  while Counter <= 7:
+    if lines:
+      line = lines[Counter]
+      score = float(line[2:]) * 4
+      final_rank = int(input('Enter a rank: '))
+      final = (score + final_rank) / 5
+      Counter += 1
+      print('updated average ranking is: ',final)
+      Names.append(line[0])
+      Ranking.append(final)
+  for i in range(len(Ranking)):
+    Nested_list.append([Names[i],Ranking[i]])
+  return Nested_list
+  file.close()
+
+temp_list = rank()
+print(temp_list)
+
+
+with open('output.txt', 'w') as new_file: # don't want to erase data in RESULTS.txt file
+    for sublist in temp_list:
+        new_file.write(str(sublist) + '\n')
