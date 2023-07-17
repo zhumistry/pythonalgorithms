@@ -1,0 +1,24 @@
+Question: Sum of odd or even numbers in a range 
+
+def SumAll(First, Last, OddEven):
+  Sum = 0
+  if First <= Last:
+    print("First is ", First)
+    Reminder = First % 2
+    
+    if OddEven: #odd
+      if Reminder:
+        Sum = First + SumAll(First + 2, Last, OddEven)
+      else:
+        Sum = First + SumAll(First + 1, Last, OddEven) 
+    else:
+      if not Reminder:
+        print("processing addition of even numbers")
+        Sum = First + SumAll(First + 2, Last, OddEven)
+      else:
+        Sum = First + SumAll(First + 1, Last, OddEven)
+  return Sum
+
+print(SumAll(0, 10, 0))
+print(SumAll(0, 10, 1))
+print(SumAll(1, 10, 1))
